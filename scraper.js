@@ -13,11 +13,19 @@ function main() {
       .then((res) => {
 
 
-      const $ = cheerio.load(res.data);
-      const all = $(".g").map(function() {
-        return this.innerHTML;
-      }).get();
-      console.log({all})
+    const $ = cheerio.load(res.data)
+      const all = $(".g")      
+      const results = []
+      const r2 = new Set()
+      $("g").each((index, element) => {
+        r2.add($(element).text());
+      })
+
+
+        console.log(
+        results
+        ,r2    
+        )
 
     })
     .catch( e => {
